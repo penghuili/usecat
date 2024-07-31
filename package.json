@@ -4,7 +4,10 @@
   "description": "The simplest react state management library.",
   "author": "Penghui Li",
   "main": "index.js",
-  "scripts": {},
+  "types": "index.d.ts",
+  "scripts": {
+    "publish": "npm publish --auth-type=legacy"
+  },
   "peerDependencies": {
     "react": ">= 16.8"
   },
