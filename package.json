@@ -1,0 +1,17 @@
+{
+  "name": "usecat",
+  "version": "0.0.1",
+  "description": "The simplest react state management library.",
+  "author": "Penghui Li",
+  "main": "index.js",
+  "scripts": {},
+  "peerDependencies": {
+    "react": ">= 16.8"
+  },
+  "keywords": [
+    "react",
+    "state",
+    "management"
+  ],
+  "license": "MIT"
+}
