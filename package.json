@@ -1,6 +1,6 @@
 {
   "name": "usecat",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The simplest react state management library.",
   "author": "Penghui Li",
   "main": "index.js",
