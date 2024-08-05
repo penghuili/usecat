@@ -19,5 +19,9 @@
     "state management",
     "simple"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/penghuili/usecat.git"
+  },
   "license": "MIT"
 }
