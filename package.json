@@ -1,7 +1,7 @@
 {
   "name": "usecat",
   "version": "0.0.2",
-  "description": "The simplest react state management library.",
+  "description": "The simplest way for react state management.",
   "author": "Penghui Li",
   "main": "index.js",
   "types": "index.d.ts",
@@ -13,8 +13,11 @@
   },
   "keywords": [
     "react",
+    "reactjs",
     "state",
-    "management"
+    "management",
+    "state management",
+    "simple"
   ],
   "license": "MIT"
 }

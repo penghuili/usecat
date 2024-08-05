@@ -1,6 +1,6 @@
 # usecat
 
-The simplest react state management library.
+The simplest way for react state management.
 
 All of the popular react state management libs are too complex for me, I only need these:
 
