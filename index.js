@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from "react";
 
 const cats = [];
 
@@ -8,16 +8,17 @@ export function createCat(initialValue) {
 
   const get = () => value;
 
-  const set = newValue => {
+  const set = (newValue) => {
     if (newValue !== value) {
+      const oldValue = value;
       value = newValue;
-      listeners.forEach(listener => listener());
+      listeners.forEach((listener) => listener(oldValue, newValue));
     }
   };
 
   const reset = () => set(initialValue);
 
-  const subscribe = listener => {
+  const subscribe = (listener) => {
     listeners.add(listener);
     return () => listeners.delete(listener);
   };
@@ -28,17 +29,24 @@ export function createCat(initialValue) {
   return cat;
 }
 
-export function useCat(cat) {
-  const [, forceUpdate] = useReducer(x => x + 1, 0);
+export function useCat(cat, selector = (value) => value) {
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
   useEffect(() => {
-    const unsubscribe = cat.subscribe(forceUpdate);
+    const handler = (oldValue, newValue) => {
+      const oldSlice = selector(oldValue);
+      const newSlice = selector(newValue);
+      if (oldSlice !== newSlice) {
+        forceUpdate();
+      }
+    };
+    const unsubscribe = cat.subscribe(handler);
     return () => unsubscribe();
   }, [cat]);
 
-  return cat.get();
+  return selector(cat.get());
 }
 
 export function resetAllCats() {
-  cats.forEach(cat => cat.reset());
+  cats.forEach((cat) => cat.reset());
 }

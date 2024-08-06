@@ -79,6 +79,30 @@ function MyComponent() {
 }
 ```
 
+You can also provide a selector, if the selected value is not changed, it won't trigger re-rendering:
+
+```
+import { useCat } from 'usecat';
+import { isLoadingTodosCat, todosCat } from './cats'
+import { fetchTodos } from './network';
+
+function MyComponent() {
+  const isLoading = useCat(isLoadingTodosCat);
+  const todosCount = useCat(todosCat, todos => todos?.length || 0);
+
+  useEffect(() => {
+    fetchTodos();
+  }, [])
+
+  return (
+     <>
+        {isLoading && <div>loading ...</div>}
+        <p>You have {todosCount} todos.</p>
+      </>
+  )
+}
+```
+
 ### Bonus API to reset all your cats:
 
 ```
