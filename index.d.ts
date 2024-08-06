@@ -1,14 +1,14 @@
 declare module "usecat" {
-  export function createCat<T>(initialValue: T): {
+  export interface Cat<T> {
     get: () => T;
-    set: (newValue: T | ((prevValue: T) => T)) => void;
+    set: (newValue: T) => void;
     reset: () => void;
-    subscribe: (listener: () => void) => () => void;
-  };
+    subscribe: (listener: (oldValue: T, newValue: T) => void) => () => void;
+  }
 
-  export function useCat<T>(
-    cat: ReturnType<typeof createCat<T>>
-  ): [T, (newValue: T | ((prevValue: T) => T)) => void];
+  export function createCat<T>(initialValue: T): Cat<T>;
+
+  export function useCat<T, U = T>(cat: Cat<T>, selector?: (value: T) => U): U;
 
   export function resetAllCats(): void;
 }
