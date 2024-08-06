@@ -3,7 +3,6 @@ declare module "usecat" {
     get: () => T;
     set: (newValue: T) => void;
     reset: () => void;
-    subscribe: (listener: (oldValue: T, newValue: T) => void) => () => void;
   }
 
   export function createCat<T>(initialValue: T): Cat<T>;
