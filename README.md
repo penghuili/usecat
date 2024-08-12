@@ -115,3 +115,5 @@ function handleLogout() {
 ```
 
 That's everything.
+
+See how I use **usecat** in [notenote.cc](https://github.com/penghuili/notenotecc)
