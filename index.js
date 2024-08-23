@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer } from 'react';
 
 const cats = [];
 
@@ -45,8 +45,4 @@ export function useCat(cat, selector = (value) => value) {
   }, [cat]);
 
   return selector(cat.get());
-}
-
-export function resetAllCats() {
-  cats.forEach((cat) => cat.reset());
 }

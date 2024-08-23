@@ -103,17 +103,6 @@ function MyComponent() {
 }
 ```
 
-### Bonus API to reset all your cats:
-
-```
-import { resetAllCats } from 'usecat';
-
-
-function handleLogout() {
-  resetAllCats();
-}
-```
-
 That's everything.
 
 See how I use **usecat** in [notenote.cc](https://github.com/penghuili/notenotecc)

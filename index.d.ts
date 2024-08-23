@@ -8,6 +8,4 @@ declare module "usecat" {
   export function createCat<T>(initialValue: T): Cat<T>;
 
   export function useCat<T, U = T>(cat: Cat<T>, selector?: (value: T) => U): U;
-
-  export function resetAllCats(): void;
 }
