@@ -107,4 +107,4 @@ function MyComponent() {
 
 That's everything.
 
-See how I use **usecat** in [notenote.cc](https://github.com/penghuili/notenotecc)
+See how I use **usecat** in [easyy.click](https://github.com/penghuili/easyy.click) and [notenote.cc](https://github.com/penghuili/notenotecc)
