@@ -1,6 +1,4 @@
-import { useEffect, useReducer } from 'react';
-
-const cats = [];
+import { useEffect, useReducer, useRef } from "react";
 
 export function createCat(initialValue) {
   let value = initialValue;
@@ -23,19 +21,21 @@ export function createCat(initialValue) {
     return () => listeners.delete(listener);
   };
 
-  const cat = { get, set, reset, subscribe };
-  cats.push(cat);
-
-  return cat;
+  return { get, set, reset, subscribe };
 }
 
 export function useCat(cat, selector = (value) => value) {
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
+  const selectorRef = useRef(selector);
+
+  useEffect(() => {
+    selectorRef.current = selector;
+  }, [selector]);
 
   useEffect(() => {
     const handler = (oldValue, newValue) => {
-      const oldSlice = selector(oldValue);
-      const newSlice = selector(newValue);
+      const oldSlice = selectorRef.current(oldValue);
+      const newSlice = selectorRef.current(newValue);
       if (oldSlice !== newSlice) {
         forceUpdate();
       }
