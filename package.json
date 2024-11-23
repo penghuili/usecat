@@ -1,10 +1,17 @@
 {
   "name": "usecat",
   "version": "1.1.4",
-  "description": "The simplest way for react state management.",
+  "description": "The simplest react state manager.",
   "author": "Penghui Li",
-  "main": "index.js",
+  "main": "index.cjs",
+  "module": "index.js",
   "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./index.cjs",
+      "import": "./index.js"
+    }
+  },
   "scripts": {
     "publish": "npm publish --auth-type=legacy"
   },
@@ -13,11 +20,14 @@
   },
   "keywords": [
     "react",
+    "usecat",
     "reactjs",
     "state",
     "management",
     "state management",
-    "simple"
+    "state manager",
+    "simple",
+    "simplest"
   ],
   "repository": {
     "type": "git",
